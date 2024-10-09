@@ -1,0 +1,144 @@
+/*Overall Pseudocode Explains the functionality of this HTML file:
+
+
+Form Layout:
+
+The form is displayed as a grid with two columns, where the first column has a fixed width and the second column takes the remaining space.
+A gap between grid items is defined for better spacing.
+Button Styles:
+
+The button within the form spans the entire width of the form and is styled with padding, background color, and rounded corners.
+A hover effect is added to change the background color when the user hovers over the button, enhancing interactivity.
+Unordered List Styles:
+
+The unordered list displays as a grid that adapts to screen size, allowing for responsive layouts.
+Each list item has a fixed height and a gap for better separation.
+List Item Styles:
+
+Each list item has a border, padding, a light gray background, and overflow management to handle content that exceeds the visible area.
+A hover effect gives the items a lift effect and adds a shadow for a 3D appearance.
+Media Queries:
+
+Media queries ensure the layout adjusts on smaller screens by stacking form elements and list items in a single column, making it more mobile-friendly.
+Message Area:
+
+A dedicated area for displaying messages (success or error) with distinct styles for each type, providing user feedback.
+Loading Indicator:
+
+Flexbox is used to center a loading indicator, which has a spinner animation created with keyframes for visual feedback during loading processes.
+This expanded CSS adds significant styling features, improves user experience through visual feedback, and ensures 
+responsiveness on various screen sizes while providing additional functionalities like feedback messages and loading indicators.
+*/
+
+
+
+
+
+
+
+
+
+/* Styles for the entire form element, utilizing CSS Grid for layout management */
+form { 
+    display: grid; /* Establishes a grid layout for the form */
+    grid-template-columns: 8rem 1fr; /* Defines two columns: the first with fixed width and the second flexible */
+    gap: 1rem; /* Sets a gap between grid items for better spacing */
+}
+
+/* Styles for the button within the form, making it span across all columns */
+form button {
+    grid-column: 1 / -1; /* Makes the button take up the entire row of the grid */
+    padding: 0.5rem 1rem; /* Adds padding for a better clickable area */
+    background-color: #4CAF50; /* Gives the button a green background */
+    color: white; /* Sets the text color to white for contrast */
+    border: none; /* Removes the default border */
+    border-radius: 5px; /* Rounds the corners of the button */
+    cursor: pointer; /* Changes the cursor to a pointer on hover */
+    transition: background-color 0.3s ease; /* Smooth transition for background color change on hover */
+}
+
+/* Hover effect for the button to indicate interactivity */
+form button:hover {
+    background-color: #45a049; /* Darker green on hover for visual feedback */
+}
+
+/* Styles for the unordered list (ul) that contains event items */
+ul {
+    list-style: none; /* Removes default list styling (bullets) */
+    padding-left: 0; /* Resets padding for the list */
+
+    display: grid; /* Establishes a grid layout for the list items */
+    grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr)); /* Responsive grid columns that adjust based on screen size */
+    grid-auto-rows: 25rem; /* Fixed height for the grid rows */
+    gap: 1ch; /* Sets the gap between list items for a cleaner look */
+}
+
+/* Styles for individual list items (li) within the unordered list */
+li {
+    border: 1px solid black; /* Adds a black border around each list item */
+    padding: 1rem; /* Internal padding for better text layout */
+    border-radius: 5px; /* Rounds the corners of the list item */
+    background-color: #f9f9f9; /* Light gray background for contrast */
+    overflow-y: auto; /* Allows vertical scrolling if the content exceeds the height */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions for hover effects */
+}
+
+/* Hover effect for list items to enhance visual feedback */
+li:hover {
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow effect for depth on hover */
+}
+
+/* Media query to adjust styles for smaller screens */
+@media (max-width: 600px) {
+    form {
+        grid-template-columns: 1fr; /* Stacks form elements in a single column on smaller screens */
+    }
+    
+    ul {
+        grid-template-columns: 1fr; /* Stacks list items in a single column on smaller screens */
+    }
+}
+
+/* Styles for a message area that displays feedback to the user (e.g., success/error messages) */
+.message {
+    padding: 1rem; /* Adds padding around the message area */
+    border-radius: 5px; /* Rounds corners for a softer look */
+    margin-top: 1rem; /* Adds space above the message area */
+}
+
+/* Styles for success messages */
+.message.success {
+    background-color: #dff0d8; /* Light green background for success messages */
+    color: #3c763d; /* Darker green text for better readability */
+}
+
+/* Styles for error messages */
+.message.error {
+    background-color: #f2dede; /* Light red background for error messages */
+    color: #a94442; /* Darker red text for better readability */
+}
+
+/* Styles for loading indicators (e.g., spinner) */
+.loading {
+    display: flex; /* Flexbox for centering */
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    height: 100%; /* Full height for proper alignment */
+}
+
+/* Keyframes for a simple loading spinner animation */
+@keyframes spinner {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Styles for the spinner itself */
+.spinner {
+    width: 40px; /* Fixed width for the spinner */
+    height: 40px; /* Fixed height for the spinner */
+    border: 5px solid rgba(0, 0, 0, 0.1); /* Light border for the spinner */
+    border-top: 5px solid #3498db; /* Blue color for the top border */
+    border-radius: 50%; /* Circular shape */
+    animation: spinner 1s linear infinite; /* Applies the spinner animation */
+}

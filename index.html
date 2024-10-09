@@ -1,0 +1,92 @@
+<!-- Overall Pseudocode Explains the functionality of this HTML file:
+
+
+
+ 
+HTML Structure:
+
+The HTML document begins with the <!DOCTYPE html> declaration, defining the document as HTML5.
+The <html lang="en"> tag specifies that the language is English, important for accessibility tools.
+Head Section:
+
+The meta charset="UTF-8" tag defines the character encoding for the page, supporting a broad range of symbols.
+The meta name="viewport" tag ensures that the page is responsive, scaling correctly on various devices, particularly mobile.
+The <title> sets the name of the page, visible in the browser's tab.
+The linked external CSS file (styles.css) allows for styling the page, while the JavaScript file (index.js) is deferred, ensuring the script only runs after the HTML is fully loaded.
+Body Section:
+
+The header <h1>Parties!!</h1> introduces the purpose of the page.
+The form <form id="addEvent"> contains input fields for adding new event details. These include:
+Event Name: A text input field for the event name.
+Event Date: A date input field allowing the user to choose a date.
+Event Location: A text input field for the event location.
+Event Description: A text input field for a brief description.
+The form is concluded with a submit button (<button type="submit">Add Event</button>), allowing users to submit event details.
+Dynamic Content:
+
+The unordered list (<ul id="events"></ul>) is used to dynamically display the events added by the user. This will be manipulated via JavaScript.->
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Specifies the document type and language for proper rendering and accessibility -->
+    <meta charset="UTF-8" />
+    <!-- Sets the character encoding to UTF-8, which supports most languages and symbols -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Ensures proper scaling on all devices, making the page responsive -->
+
+    <title>Party Planner</title>
+    <!-- The title of the webpage that will appear in the browser tab -->
+
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Links an external CSS file named 'styles.css' for custom styles of the page -->
+
+    <script src="index.js" defer></script>
+    <!-- Links an external JavaScript file named 'index.js'; 'defer' ensures the script is loaded after the DOM is fully parsed -->
+  </head>
+
+  <body>
+    <!-- Main content of the page begins here -->
+
+    <h1>Parties!!</h1>
+    <!-- A header for the webpage, indicating its theme -->
+
+    <!-- The form element that allows users to input details for adding a new event -->
+    <form id="addEvent">
+      <!-- Label and input for entering the event's name -->
+      <label for="title">Event Name</label>
+      <input type="text" name="title" placeholder="Event Name" />
+      <!-- Text input for the event name -->
+
+      <!-- Label and input for selecting the event's date -->
+      <label for="date">Event Date</label>
+      <input type="date" name="date" placeholder="Event Date" />
+      <!-- Date input field to choose the event date -->
+
+      <!-- Label and input for entering the event's location -->
+      <label for="location">Event Location</label>
+      <input type="text" name="location" placeholder="Location" />
+      <!-- Text input for the event location -->
+
+      <!-- Label and input for providing a brief description of the event -->
+      <label for="description">Event Description</label>
+      <input type="text" name="description" placeholder="Description" />
+      <!-- Text input for the event description -->
+
+      <!-- Button to submit the form and add the event -->
+      <button type="submit">Add Event</button>
+      <!-- The submit button triggers the JavaScript to handle the form submission -->
+    </form>
+
+    <!-- An unordered list where added events will be displayed -->
+    <ul id="events"></ul>
+    <!-- This list will be dynamically populated with event details via JavaScript -->
+  </body>
+</html>
